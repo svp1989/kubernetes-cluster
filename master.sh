@@ -49,7 +49,7 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 #тут прописываем адресс нашей ноды
-IPADDR="192.168.100.213"
+IPADDR=$(hostname -I | awk '{print $1}')
 
 sudo kubeadm init \
     --apiserver-advertise-address=$IPADDR  \
